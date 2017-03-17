@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestHostelDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AvisClient">
+    <Key>
+      <PropertyRef Name="IdAvis" />
+    </Key>
+    <Property Name="IdAvis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Note" Type="int" Nullable="false" />
+    <Property Name="DateNote" Type="datetime" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="Approuve" Type="bit" />
+    <Property Name="Commentaire" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Chambre">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+    </Key>
+    <Property Name="IdChambre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescCourte" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescLongue" Type="ntext" Nullable="false" />
+    <Property Name="IdHostel" Type="int" Nullable="false" />
+    <Property Name="IdType" Type="int" Nullable="false" />
+    <Property Name="Capacite" Type="int" Nullable="false" />
+    <Property Name="NbWc" Type="int" />
+    <Property Name="NbSdb" Type="int" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="EsTSupprimer" Type="bit" />
+  </EntityType>
+  <EntityType Name="ChambrePhoto">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+      <PropertyRef Name="IdPhoto" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="IdPhoto" Type="int" Nullable="false" />
+    <Property Name="Ordre" Type="int" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pseudo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MotDePasse" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DedicatedConnexion">
+    <Key>
+      <PropertyRef Name="IdAdmin" />
+    </Key>
+    <Property Name="IdAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hostel">
+    <Key>
+      <PropertyRef Name="IdHostel" />
+    </Key>
+    <Property Name="IdHostel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Etoiles" Type="int" Nullable="false" />
+    <Property Name="Rue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="CodePostal" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pays" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="NombreChambres" Type="int" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="IdPhoto" />
+    </Key>
+    <Property Name="IdPhoto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GestHostelDb.dbo.Prix' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Prix">
+    <Key>
+      <PropertyRef Name="AssuranceAnnulation" />
+      <PropertyRef Name="TaxeSejour" />
+    </Key>
+    <Property Name="AssuranceAnnulation" Type="float" Nullable="false" />
+    <Property Name="TaxeSejour" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="IdReservation" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="DateDeb" Type="datetime" Nullable="false" />
+    <Property Name="DateFin" Type="datetime" Nullable="false" />
+    <Property Name="NbPers" Type="int" Nullable="false" />
+    <Property Name="IdReservation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssuranceAnnulation" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IdService" />
+    </Key>
+    <Property Name="IdService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="icone" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceChambre">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+      <PropertyRef Name="IdService" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="IdService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceHostel">
+    <Key>
+      <PropertyRef Name="IdHostel" />
+      <PropertyRef Name="IdService" />
+    </Key>
+    <Property Name="IdHostel" Type="int" Nullable="false" />
+    <Property Name="IdService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeChambre">
+    <Key>
+      <PropertyRef Name="IdType" />
+    </Key>
+    <Property Name="IdType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GestHostelDb.dbo.5LastAvaibleRooms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="5LastAvaibleRooms">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+      <PropertyRef Name="Nom" />
+      <PropertyRef Name="DescCourte" />
+      <PropertyRef Name="DescLongue" />
+      <PropertyRef Name="IdHostel" />
+      <PropertyRef Name="IdType" />
+      <PropertyRef Name="Capacite" />
+      <PropertyRef Name="Prix" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescCourte" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescLongue" Type="ntext" Nullable="false" />
+    <Property Name="IdHostel" Type="int" Nullable="false" />
+    <Property Name="IdType" Type="int" Nullable="false" />
+    <Property Name="Capacite" Type="int" Nullable="false" />
+    <Property Name="NbWc" Type="int" />
+    <Property Name="NbSdb" Type="int" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="EsTSupprimer" Type="bit" />
+    <Property Name="Expr1" Type="int" />
+    <Property Name="IdClient" Type="int" />
+    <Property Name="DateDeb" Type="datetime" />
+    <Property Name="DateFin" Type="datetime" />
+    <Property Name="NbPers" Type="int" />
+    <Property Name="IdReservation" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GestHostelDb.dbo.BestRooms' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BestRooms">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+      <PropertyRef Name="Nom" />
+      <PropertyRef Name="DescCourte" />
+      <PropertyRef Name="DescLongue" />
+      <PropertyRef Name="IdHostel" />
+      <PropertyRef Name="IdType" />
+      <PropertyRef Name="Capacite" />
+      <PropertyRef Name="Prix" />
+      <PropertyRef Name="IdAvis" />
+      <PropertyRef Name="Note" />
+      <PropertyRef Name="DateNote" />
+      <PropertyRef Name="IdClient" />
+      <PropertyRef Name="Expr1" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescCourte" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescLongue" Type="ntext" Nullable="false" />
+    <Property Name="IdHostel" Type="int" Nullable="false" />
+    <Property Name="IdType" Type="int" Nullable="false" />
+    <Property Name="Capacite" Type="int" Nullable="false" />
+    <Property Name="NbWc" Type="int" />
+    <Property Name="NbSdb" Type="int" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="EsTSupprimer" Type="bit" />
+    <Property Name="IdAvis" Type="int" Nullable="false" />
+    <Property Name="Note" Type="int" Nullable="false" />
+    <Property Name="DateNote" Type="datetime" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="Approuve" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GestHostelDb.dbo.RoomsByCountry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RoomsByCountry">
+    <Key>
+      <PropertyRef Name="IdChambre" />
+      <PropertyRef Name="Nom" />
+      <PropertyRef Name="DescCourte" />
+      <PropertyRef Name="DescLongue" />
+      <PropertyRef Name="IdHostel" />
+      <PropertyRef Name="IdType" />
+      <PropertyRef Name="Capacite" />
+      <PropertyRef Name="Prix" />
+    </Key>
+    <Property Name="IdChambre" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescCourte" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescLongue" Type="ntext" Nullable="false" />
+    <Property Name="IdHostel" Type="int" Nullable="false" />
+    <Property Name="IdType" Type="int" Nullable="false" />
+    <Property Name="Capacite" Type="int" Nullable="false" />
+    <Property Name="NbWc" Type="int" />
+    <Property Name="NbSdb" Type="int" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="EsTSupprimer" Type="bit" />
+  </EntityType>
+  <Association Name="FK_AvisClient_Chambre">
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="1" />
+    <End Role="AvisClient" Type="Self.AvisClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="IdChambre" />
+      </Principal>
+      <Dependent Role="AvisClient">
+        <PropertyRef Name="IdChambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvisClient_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="AvisClient" Type="Self.AvisClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="AvisClient">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chambre_Hostel">
+    <End Role="Hostel" Type="Self.Hostel" Multiplicity="1" />
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hostel">
+        <PropertyRef Name="IdHostel" />
+      </Principal>
+      <Dependent Role="Chambre">
+        <PropertyRef Name="IdHostel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chambre_TypeChambre">
+    <End Role="TypeChambre" Type="Self.TypeChambre" Multiplicity="1" />
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeChambre">
+        <PropertyRef Name="IdType" />
+      </Principal>
+      <Dependent Role="Chambre">
+        <PropertyRef Name="IdType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChambrePhoto_Chambre">
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="1" />
+    <End Role="ChambrePhoto" Type="Self.ChambrePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="IdChambre" />
+      </Principal>
+      <Dependent Role="ChambrePhoto">
+        <PropertyRef Name="IdChambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChambrePhoto_Photo">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+    <End Role="ChambrePhoto" Type="Self.ChambrePhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="IdPhoto" />
+      </Principal>
+      <Dependent Role="ChambrePhoto">
+        <PropertyRef Name="IdPhoto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Chambre">
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="IdChambre" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="IdChambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceChambre_Chambre">
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="1" />
+    <End Role="ServiceChambre" Type="Self.ServiceChambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="IdChambre" />
+      </Principal>
+      <Dependent Role="ServiceChambre">
+        <PropertyRef Name="IdChambre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceChambre_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceChambre" Type="Self.ServiceChambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IdService" />
+      </Principal>
+      <Dependent Role="ServiceChambre">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceHostel_Hostel">
+    <End Role="Hostel" Type="Self.Hostel" Multiplicity="1" />
+    <End Role="ServiceHostel" Type="Self.ServiceHostel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hostel">
+        <PropertyRef Name="IdHostel" />
+      </Principal>
+      <Dependent Role="ServiceHostel">
+        <PropertyRef Name="IdHostel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceHostel_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceHostel" Type="Self.ServiceHostel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IdService" />
+      </Principal>
+      <Dependent Role="ServiceHostel">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetAllInfosForRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idChambre" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAvaibleRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Deb" Type="datetime" Mode="In" />
+    <Parameter Name="Fin" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetReservationForClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idClient" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetRoomsFromHostel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idHostel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="GestHostelDbModelStoreContainer">
+    <EntitySet Name="AvisClient" EntityType="Self.AvisClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chambre" EntityType="Self.Chambre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChambrePhoto" EntityType="Self.ChambrePhoto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DedicatedConnexion" EntityType="Self.DedicatedConnexion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hostel" EntityType="Self.Hostel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceChambre" EntityType="Self.ServiceChambre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceHostel" EntityType="Self.ServiceHostel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeChambre" EntityType="Self.TypeChambre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prix" EntityType="Self.Prix" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Prix].[AssuranceAnnulation] AS [AssuranceAnnulation], 
+    [Prix].[TaxeSejour] AS [TaxeSejour]
+    FROM [dbo].[Prix] AS [Prix]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="5LastAvaibleRooms" EntityType="Self.5LastAvaibleRooms" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [5LastAvaibleRooms].[IdChambre] AS [IdChambre], 
+    [5LastAvaibleRooms].[Nom] AS [Nom], 
+    [5LastAvaibleRooms].[DescCourte] AS [DescCourte], 
+    [5LastAvaibleRooms].[DescLongue] AS [DescLongue], 
+    [5LastAvaibleRooms].[IdHostel] AS [IdHostel], 
+    [5LastAvaibleRooms].[IdType] AS [IdType], 
+    [5LastAvaibleRooms].[Capacite] AS [Capacite], 
+    [5LastAvaibleRooms].[NbWc] AS [NbWc], 
+    [5LastAvaibleRooms].[NbSdb] AS [NbSdb], 
+    [5LastAvaibleRooms].[Prix] AS [Prix], 
+    [5LastAvaibleRooms].[EsTSupprimer] AS [EsTSupprimer], 
+    [5LastAvaibleRooms].[Expr1] AS [Expr1], 
+    [5LastAvaibleRooms].[IdClient] AS [IdClient], 
+    [5LastAvaibleRooms].[DateDeb] AS [DateDeb], 
+    [5LastAvaibleRooms].[DateFin] AS [DateFin], 
+    [5LastAvaibleRooms].[NbPers] AS [NbPers], 
+    [5LastAvaibleRooms].[IdReservation] AS [IdReservation]
+    FROM [dbo].[5LastAvaibleRooms] AS [5LastAvaibleRooms]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BestRooms" EntityType="Self.BestRooms" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BestRooms].[IdChambre] AS [IdChambre], 
+    [BestRooms].[Nom] AS [Nom], 
+    [BestRooms].[DescCourte] AS [DescCourte], 
+    [BestRooms].[DescLongue] AS [DescLongue], 
+    [BestRooms].[IdHostel] AS [IdHostel], 
+    [BestRooms].[IdType] AS [IdType], 
+    [BestRooms].[Capacite] AS [Capacite], 
+    [BestRooms].[NbWc] AS [NbWc], 
+    [BestRooms].[NbSdb] AS [NbSdb], 
+    [BestRooms].[Prix] AS [Prix], 
+    [BestRooms].[EsTSupprimer] AS [EsTSupprimer], 
+    [BestRooms].[IdAvis] AS [IdAvis], 
+    [BestRooms].[Note] AS [Note], 
+    [BestRooms].[DateNote] AS [DateNote], 
+    [BestRooms].[IdClient] AS [IdClient], 
+    [BestRooms].[Expr1] AS [Expr1], 
+    [BestRooms].[Approuve] AS [Approuve]
+    FROM [dbo].[BestRooms] AS [BestRooms]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RoomsByCountry" EntityType="Self.RoomsByCountry" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RoomsByCountry].[IdChambre] AS [IdChambre], 
+    [RoomsByCountry].[Nom] AS [Nom], 
+    [RoomsByCountry].[DescCourte] AS [DescCourte], 
+    [RoomsByCountry].[DescLongue] AS [DescLongue], 
+    [RoomsByCountry].[IdHostel] AS [IdHostel], 
+    [RoomsByCountry].[IdType] AS [IdType], 
+    [RoomsByCountry].[Capacite] AS [Capacite], 
+    [RoomsByCountry].[NbWc] AS [NbWc], 
+    [RoomsByCountry].[NbSdb] AS [NbSdb], 
+    [RoomsByCountry].[Prix] AS [Prix], 
+    [RoomsByCountry].[EsTSupprimer] AS [EsTSupprimer]
+    FROM [dbo].[RoomsByCountry] AS [RoomsByCountry]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AvisClient_Chambre" Association="Self.FK_AvisClient_Chambre">
+      <End Role="Chambre" EntitySet="Chambre" />
+      <End Role="AvisClient" EntitySet="AvisClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvisClient_Client" Association="Self.FK_AvisClient_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="AvisClient" EntitySet="AvisClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chambre_Hostel" Association="Self.FK_Chambre_Hostel">
+      <End Role="Hostel" EntitySet="Hostel" />
+      <End Role="Chambre" EntitySet="Chambre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chambre_TypeChambre" Association="Self.FK_Chambre_TypeChambre">
+      <End Role="TypeChambre" EntitySet="TypeChambre" />
+      <End Role="Chambre" EntitySet="Chambre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChambrePhoto_Chambre" Association="Self.FK_ChambrePhoto_Chambre">
+      <End Role="Chambre" EntitySet="Chambre" />
+      <End Role="ChambrePhoto" EntitySet="ChambrePhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChambrePhoto_Photo" Association="Self.FK_ChambrePhoto_Photo">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="ChambrePhoto" EntitySet="ChambrePhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Chambre" Association="Self.FK_Reservation_Chambre">
+      <End Role="Chambre" EntitySet="Chambre" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Client" Association="Self.FK_Reservation_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceChambre_Chambre" Association="Self.FK_ServiceChambre_Chambre">
+      <End Role="Chambre" EntitySet="Chambre" />
+      <End Role="ServiceChambre" EntitySet="ServiceChambre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceChambre_Service" Association="Self.FK_ServiceChambre_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceChambre" EntitySet="ServiceChambre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceHostel_Hostel" Association="Self.FK_ServiceHostel_Hostel">
+      <End Role="Hostel" EntitySet="Hostel" />
+      <End Role="ServiceHostel" EntitySet="ServiceHostel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceHostel_Service" Association="Self.FK_ServiceHostel_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceHostel" EntitySet="ServiceHostel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

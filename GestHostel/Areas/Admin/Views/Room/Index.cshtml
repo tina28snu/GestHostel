@@ -1,0 +1,16 @@
+﻿@model IEnumerable<GestHostel.Models.ChambreModel>
+
+<h2>OUR ROOMS</h2>
+
+<table>
+
+    @{
+        foreach (var item in Model)
+        {
+            Html.RenderPartial("~/Areas/Admin/Views/Shared/_Room.cshtml", item);
+        }
+    }
+</table>
+
+
+

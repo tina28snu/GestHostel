@@ -1,0 +1,78 @@
+﻿@model GestHostel.Models.Chambre
+
+<div>
+    <h4>Chambre</h4>
+    <hr />
+    <table>
+        <tr style="text-align: center; vertical-align: top; height: 40vh; overflow: scroll;">
+            <td rowspan="2">
+                @foreach (var photo in Model.ChambrePhoto)
+                {
+                    <img style="margin: 2vh 1vw;" src="~/img/@photo.Photo.Url" alt="" width="300" /> <br />
+                }
+            </td>
+            <td style="border-bottom: 1px solid gray;">
+                <br />
+                <p>@Html.DisplayFor(model => model.Nom) </p>
+
+                <p style="text-align: justify;">@Html.DisplayFor(model => model.DescLongue) </p>
+
+                <p> 
+                    <span style="padding-right: 10vw;">@Html.DisplayFor(model => model.TypeChambre.Libelle) room</span>
+                    <span>Numbre Persons: @Html.DisplayFor(model => model.Capacite)</span> 
+                </p>
+
+                <p>
+                    <span style="padding-right: 10vw;">Number WC: @Html.DisplayFor(model => model.NbWc)</span>
+                    <span>Number Bathrooms: @Html.DisplayFor(model => model.NbSdb)</span> 
+                </p>
+
+                <p> Price: @Html.DisplayFor(model => model.Prix) euro/night/room </p>
+
+            </td>
+            <td style="padding: 2vh 2vw;">
+                <h4>Hotel</h4>
+                <img src="~/img/@Model.Hostel.Photo" alt="" width="200" /> <br />
+                @Html.DisplayFor(model => model.Hostel.Nom) <br />
+                @Html.DisplayFor(model => model.Hostel.Numero)
+                @Html.DisplayFor(model => model.Hostel.Rue) <br />
+                @Html.DisplayFor(model => model.Hostel.CodePostal)
+                @Html.DisplayFor(model => model.Hostel.Pays) <br />
+                Coordonates:
+                @Html.DisplayFor(model => model.Hostel.Latitude)
+                @Html.DisplayFor(model => model.Hostel.Longitude) <br />
+
+                <br />
+                @using (Html.BeginForm("Book", "Rooms"))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="IdChambre" value="@Model.IdChambre" />
+                    <input type="submit" name="book" value="Book Now" />
+                }
+            </td>
+        </tr>
+        <tr style="text-align: center; vertical-align: top">
+            <td>
+                <h4>Comments from Clients</h4>
+                <br />
+                @foreach (var avis in Model.AvisClient)
+                {
+                    int note = avis.Note;
+                    <p style="text-align: justify;">
+                        <strong>
+                            Note: @note / 10 <br />
+                        </strong>
+                        @avis.Commentaire <br />
+                    </p>
+                    <p style="border-bottom: 1px solid gray; padding: 1vh 0 2vh 0">
+                        <strong>
+                            Comment left by @avis.Client.Prenom @avis.Client.Nom on @avis.DateNote
+                        </strong>
+                    </p>
+                }
+            </td>
+        </tr>
+
+    </table>
+
+</div>

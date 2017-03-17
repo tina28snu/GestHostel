@@ -1,0 +1,37 @@
+﻿@model GestHostel.Models.ChambreModel
+
+<br />
+@using (Html.BeginForm("ShowRoom", "Room", new { area = "Admin" } ))
+{
+    @Html.AntiForgeryToken()
+
+    <tr style="border-bottom: 1px grey solid;">
+        <td>
+            <img style="margin: 2vh 0;" width="500" src="~/img/@Model.MainPhoto" />
+        </td>
+        <td style="padding-left: 5vw; text-align: center;">
+            @Html.DisplayFor(modelItem => Model.TypeChambre)
+            @Html.DisplayFor(modelItem => Model.Prix)
+            <br />
+
+            @Html.DisplayFor(modelItem => Model.Nom)
+            <br />
+
+            @Html.DisplayFor(modelItem => Model.DescCourte)
+            <br />
+
+            @Html.DisplayFor(modelItem => Model.DescLongue)
+            <br />
+
+            @foreach (var serv in Model.Service)
+            {
+                <span> @Html.DisplayFor(modelItem => serv.Libelle) </span>
+            }
+
+            <br />
+            <input type="hidden" name="IdChambre" value="@Model.IdChambre" />
+            <input type="submit" name="modify" value="Modify" />
+        </td>
+    </tr>
+}
+

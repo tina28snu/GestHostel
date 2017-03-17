@@ -1,0 +1,58 @@
+﻿
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Welcome to Magnolia</h1>
+                        <h2>Cousy and affordable accomodation <strong>in a nice contest</strong>.</h2>
+                    </div>
+                </div>
+
+                
+
+                <div id="book">
+                    <form role="form" method="post" action="assets/booking.php" id="check_avail" autocomplete="off">
+                        <div class=" row">
+                            <div class="col-md-3 col-sm-3 first-nogutter dates" id="jrange">
+                                <input type="text" class=" form-control datepicker" id="check_in" name="check_in" placeholder="Your dates">
+                                <div class="ll-skin-latoja"></div>
+                                <span class="input-icon"><i class=" icon-calendar"></i></span>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2 nogutter">
+                                <div class="styled-select">
+                                    <select class="form-control " name="room_type" id="room_type">
+                                        <option value="" selected>Room type</option>
+                                        <option value="Single Room">Single Room</option>
+                                        <option value="Double Room">Double Room</option>
+                                        <option value="King Double Room">King Double Room</option>
+                                        <option value="Lux. Double Room">Luxury Double Room</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 nogutter">
+                                <input type="text" class=" form-control" id="email" name="email" placeholder="Email">
+                                <span class="input-icon"><i class="icon-mail-3"></i></span>
+                            </div>
+                            <div class="col-md-4 col-sm-4 nogutter">
+                                <div class="qty-buttons">
+                                    <input type="button" value="+" class="qtyplus" name="quantity">
+                                    <input type="text" name="quantity" id="quantity" value="" class="qty form-control required" placeholder="Guest">
+                                    <input type="button" value="-" class="qtyminus" name="quantity">
+                                </div>
+                                <div class="qty-buttons margin">
+                                    <input type="button" value="+" class="qtyplus" name="child">
+                                    <input type="text" name="child" id="child" value="" class="qty form-control required" placeholder="Child">
+                                    <input type="button" value="-" class="qtyminus" name="child">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-check" id="submit-check">BOOK NOW</button>
+                        </div>
+                    </form>
+                    <div id="message-booking"></div>
+                </div><!-- End book -->
+
+            <!-- End container -->
+
+            

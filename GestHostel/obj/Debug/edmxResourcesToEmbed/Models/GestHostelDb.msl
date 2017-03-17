@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestHostelDbModelStoreContainer" CdmEntityContainer="GestHostelDbEntities">
+    <EntitySetMapping Name="AvisClient">
+      <EntityTypeMapping TypeName="GestHostelDbModel.AvisClient">
+        <MappingFragment StoreEntitySet="AvisClient">
+          <ScalarProperty Name="IdAvis" ColumnName="IdAvis" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DateNote" ColumnName="DateNote" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Approuve" ColumnName="Approuve" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chambre">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Chambre">
+        <MappingFragment StoreEntitySet="Chambre">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChambrePhoto">
+      <EntityTypeMapping TypeName="GestHostelDbModel.ChambrePhoto">
+        <MappingFragment StoreEntitySet="ChambrePhoto">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="IdPhoto" ColumnName="IdPhoto" />
+          <ScalarProperty Name="Ordre" ColumnName="Ordre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
+          <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DedicatedConnexion">
+      <EntityTypeMapping TypeName="GestHostelDbModel.DedicatedConnexion">
+        <MappingFragment StoreEntitySet="DedicatedConnexion">
+          <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hostel">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Hostel">
+        <MappingFragment StoreEntitySet="Hostel">
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Etoiles" ColumnName="Etoiles" />
+          <ScalarProperty Name="Rue" ColumnName="Rue" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Pays" ColumnName="Pays" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NombreChambres" ColumnName="NombreChambres" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photo">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="IdPhoto" ColumnName="IdPhoto" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="DateDeb" ColumnName="DateDeb" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="NbPers" ColumnName="NbPers" />
+          <ScalarProperty Name="IdReservation" ColumnName="IdReservation" />
+          <ScalarProperty Name="AssuranceAnnulation" ColumnName="AssuranceAnnulation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="icone" ColumnName="icone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="GestHostelDbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeChambre">
+      <EntityTypeMapping TypeName="GestHostelDbModel.TypeChambre">
+        <MappingFragment StoreEntitySet="TypeChambre">
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prix">
+      <EntityTypeMapping TypeName="GestHostelDbModel.Prix">
+        <MappingFragment StoreEntitySet="Prix">
+          <ScalarProperty Name="AssuranceAnnulation" ColumnName="AssuranceAnnulation" />
+          <ScalarProperty Name="TaxeSejour" ColumnName="TaxeSejour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C5LastAvaibleRooms">
+      <EntityTypeMapping TypeName="GestHostelDbModel.C5LastAvaibleRooms">
+        <MappingFragment StoreEntitySet="5LastAvaibleRooms">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="DateDeb" ColumnName="DateDeb" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="NbPers" ColumnName="NbPers" />
+          <ScalarProperty Name="IdReservation" ColumnName="IdReservation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BestRooms">
+      <EntityTypeMapping TypeName="GestHostelDbModel.BestRooms">
+        <MappingFragment StoreEntitySet="BestRooms">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+          <ScalarProperty Name="IdAvis" ColumnName="IdAvis" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DateNote" ColumnName="DateNote" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Approuve" ColumnName="Approuve" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomsByCountry">
+      <EntityTypeMapping TypeName="GestHostelDbModel.RoomsByCountry">
+        <MappingFragment StoreEntitySet="RoomsByCountry">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ServiceChambre" TypeName="GestHostelDbModel.ServiceChambre" StoreEntitySet="ServiceChambre">
+      <EndProperty Name="Chambre">
+        <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+      </EndProperty>
+      <EndProperty Name="Service">
+        <ScalarProperty Name="IdService" ColumnName="IdService" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ServiceHostel" TypeName="GestHostelDbModel.ServiceHostel" StoreEntitySet="ServiceHostel">
+      <EndProperty Name="Hostel">
+        <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+      </EndProperty>
+      <EndProperty Name="Service">
+        <ScalarProperty Name="IdService" ColumnName="IdService" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllInfosForRoom" FunctionName="GestHostelDbModel.Store.GetAllInfosForRoom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestHostelDbModel.GetAllInfosForRoom_Result">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DateNote" ColumnName="DateNote" />
+          <ScalarProperty Name="Approuve" ColumnName="Approuve" />
+          <ScalarProperty Name="NomHotel" ColumnName="NomHotel" />
+          <ScalarProperty Name="Etoiles" ColumnName="Etoiles" />
+          <ScalarProperty Name="Rue" ColumnName="Rue" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Pays" ColumnName="Pays" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NombreChambres" ColumnName="NombreChambres" />
+          <ScalarProperty Name="PhotoHotel" ColumnName="PhotoHotel" />
+          <ScalarProperty Name="PhotoChambre" ColumnName="PhotoChambre" />
+          <ScalarProperty Name="DateDeb" ColumnName="DateDeb" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="NbPers" ColumnName="NbPers" />
+          <ScalarProperty Name="IdReservation" ColumnName="IdReservation" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="icone" ColumnName="icone" />
+          <ScalarProperty Name="TypeDeChambre" ColumnName="TypeDeChambre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAvaibleRooms" FunctionName="GestHostelDbModel.Store.GetAvaibleRooms" />
+    <FunctionImportMapping FunctionImportName="GetReservationForClient" FunctionName="GestHostelDbModel.Store.GetReservationForClient">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestHostelDbModel.GetReservationForClient_Result">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="DateDeb" ColumnName="DateDeb" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="NbPers" ColumnName="NbPers" />
+          <ScalarProperty Name="IdReservation" ColumnName="IdReservation" />
+          <ScalarProperty Name="AssuranceAnnulation" ColumnName="AssuranceAnnulation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRoomsFromHostel" FunctionName="GestHostelDbModel.Store.GetRoomsFromHostel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestHostelDbModel.GetRoomsFromHostel_Result">
+          <ScalarProperty Name="IdChambre" ColumnName="IdChambre" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DescCourte" ColumnName="DescCourte" />
+          <ScalarProperty Name="DescLongue" ColumnName="DescLongue" />
+          <ScalarProperty Name="IdHostel" ColumnName="IdHostel" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="NbWc" ColumnName="NbWc" />
+          <ScalarProperty Name="NbSdb" ColumnName="NbSdb" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="EsTSupprimer" ColumnName="EsTSupprimer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="GestHostelDbModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="GestHostelDbModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="GestHostelDbModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="GestHostelDbModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestHostelDbModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="GestHostelDbModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestHostelDbModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="GestHostelDbModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="GestHostelDbModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
